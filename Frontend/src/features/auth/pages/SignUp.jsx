@@ -1,18 +1,27 @@
 import React, { useState } from "react";
 import "../styles/signup.scss";
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import Input from "../components/Input";
+import { userAuth } from "../hooks/userAuth";
 
 const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const {loading,handleUserRegister} = userAuth()
+  const navigate = useNavigate()
+
+  async function handleSubmit(e){
+    e.preventDefault()
+    await handleUserRegister(name,email,password)
+    navigate('/')
+  }
 
   return (
     <div className="signup-page">
       <div className="signup-card">
         <h2>Create Account</h2>
-        <form>
+        <form onSubmit={(e)=>handleSubmit(e)}>
            <Input 
           type={"text"} 
           value={name} 
