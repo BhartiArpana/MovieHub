@@ -1,0 +1,9 @@
+@import './variables';
+
+:root[data-theme="light"] {
+    --bg-color: #{$light-bg};
+    --text-color: #{$light-text};
+    --card-bg: #{$light-card-bg};
+    --btn-bg: #{$btn-bg};
+    --btn-hover-shadow: #{$btn-hover-shadow};
+}
