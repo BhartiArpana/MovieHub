@@ -5,6 +5,7 @@ import ThemeToggle from './darkLightTheme/pages/ThemeToggle'
 import MovieCard from './Movie/components/MovieCard'
 import Navbar from './Movie/components/Navbar'
 import Home from './Movie/pages/Home'
+import Discover from './Movie/pages/Discover'
 
 export const router=createBrowserRouter([
     {
@@ -14,6 +15,10 @@ export const router=createBrowserRouter([
     {
         path:'/login',
         element:<Login />
+    },
+    {
+        path:'/discover',
+        element:<Discover />
     },
     {
         path:'/',

@@ -46,6 +46,26 @@
     box-shadow: 0 0 10px var(--btn-hover-shadow);
   }
 }
+.like-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+
+  &.liked {
+    color: red; // heart turns red when liked
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
 
 /* RATING */
 

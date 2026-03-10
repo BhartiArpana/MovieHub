@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import ThemeToggle from "../../darkLightTheme/pages/ThemeToggle";
 import "../styles/navbar.scss";
 import { useState } from "react";
@@ -22,8 +23,8 @@ const Navbar = () => {
 
       {/* MENU */}
       <ul className={`nav-links ${openMenu ? "active" : ""}`}>
-        <li>Home</li>
-        <li>Discover</li>
+        <li><Link to={"/"}>Home</Link></li>
+        <li><Link to="/discover">Discover</Link></li>
         <li>Favorite</li>
         <li>History</li>
       </ul>

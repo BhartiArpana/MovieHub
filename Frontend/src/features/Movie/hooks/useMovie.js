@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useCallback } from "react";
 import { MovieContext } from "../movie.context.jsx";
 
 import {
@@ -16,7 +16,10 @@ import {
   fantasyMovie,
   horrorMovie,
   getFevoriteMovie,
-  search
+  search,
+  addToFavoriteMovie,
+  removeFromFavoriteMovie,
+  getFavoritesFromBackend
 } from "../services/movie.api";
 
 export const useMovie = () => {
@@ -43,7 +46,9 @@ export const useMovie = () => {
     setHorrorMovies,
 
     setFavoriteMovies,
-    setSearchMovies
+    setSearchMovies,
+    setAddToFavoriteMovie
+    
   } = context;
 
   const fetchPopularMovies = async () => {
@@ -137,6 +142,39 @@ export const useMovie = () => {
     setLoading(false);
   };
 
+  const handleAddFavorite = useCallback(async(movieId, movieData) => {
+    setLoading(true);
+    try {
+      const data = await addToFavoriteMovie(movieId, movieData);
+      setAddToFavoriteMovie(data.favorites);
+    } catch(err) {
+      throw err;
+    } finally {
+      setLoading(false);
+    }
+  }, [setLoading, setAddToFavoriteMovie])
+
+  const handleRemoveFavorite = useCallback(async(movieId) => {
+    setLoading(true);
+    try {
+      const data = await removeFromFavoriteMovie(movieId);
+      setAddToFavoriteMovie(data.favorites);
+    } catch(err) {
+      throw err;
+    } finally {
+      setLoading(false);
+    }
+  }, [setLoading, setAddToFavoriteMovie])
+
+  const loadUserFavorites = useCallback(async () => {
+    try {
+      const data = await getFavoritesFromBackend();
+      setAddToFavoriteMovie(data.favorites || []);
+    } catch(err) {
+      console.log("Error loading favorites:", err);
+    }
+  }, [setAddToFavoriteMovie])
+
   const fetchFavoriteMovies = async (accountId) => {
     setLoading(true);
     const data = await getFevoriteMovie(accountId);
@@ -170,6 +208,9 @@ export const useMovie = () => {
     fetchHorrorMovies,
 
     fetchFavoriteMovies,
-    searchMovies
+    searchMovies,
+    handleAddFavorite,
+    handleRemoveFavorite,
+    loadUserFavorites
   };
 };

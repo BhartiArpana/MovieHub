@@ -18,6 +18,10 @@ const userSchema = new mongoose.Schema({
     role:{
         type:String,
         default:'user'
+    },
+    favorites:{
+        type:[Object],
+        default:[]
     }
 
 })

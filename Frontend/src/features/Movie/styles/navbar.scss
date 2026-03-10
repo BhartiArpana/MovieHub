@@ -9,7 +9,9 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 2.5rem; // 40px
-  position: fixed;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 /* LOGO */
@@ -30,10 +32,18 @@
     cursor: pointer;
     font-weight: 500;
     transition: 0.2s;
+     a{
+      text-decoration: none;
+      color: var(--text-color);
+    }
   }
 
-  li:hover {
+  a:hover {
     color: var(--btn-bg);
+   
+  }
+  li:hover{
+    color: var(--text-color);
   }
 }
 

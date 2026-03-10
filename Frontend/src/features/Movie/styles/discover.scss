@@ -1,0 +1,110 @@
+.discover{
+  width:100%;
+  background:var(--bg-color);
+  color:var(--text-color);
+}
+
+/* HERO */
+
+.discover-hero{
+  width:100%;
+  min-height:70vh;
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+}
+
+.hero-overlay{
+  width:100%;
+  padding:3rem 6%;
+  background:linear-gradient(to right,rgba(0,0,0,.8),rgba(0,0,0,.2));
+}
+
+.hero-content{
+  max-width:35rem;
+  color:white;
+}
+
+.hero-content h1{
+  font-size:3rem;
+  margin-bottom:1rem;
+}
+
+.hero-content p{
+  line-height:1.6;
+  opacity:.9;
+}
+
+/* CATEGORY BUTTONS */
+
+.category-buttons{
+  width:100%;
+  display:flex;
+  flex-wrap:wrap;
+  gap:1rem;
+  padding:2rem 6%;
+  justify-content:center;
+}
+
+.category-buttons button{
+  background:var(--btn-bg);
+  color:white;
+  border:none;
+  padding:.7rem 1.3rem;
+  border-radius:.4rem;
+  cursor:pointer;
+  font-size:.9rem;
+}
+.category-buttons button:active{
+    scale: 1.2;
+}
+
+/* MOVIES */
+
+.discover-movies{
+  padding:2rem 6%;
+}
+
+.movies-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(12rem,1fr));
+  gap:1.8rem;
+}
+
+/* TABLET */
+
+@media(max-width:64rem){
+
+  .hero-content h1{
+    font-size:2.4rem;
+  }
+
+  .movies-grid{
+    grid-template-columns:repeat(auto-fill,minmax(10rem,1fr));
+  }
+
+}
+
+/* MOBILE */
+
+@media(max-width:40rem){
+
+  .hero-content h1{
+    font-size:1.8rem;
+  }
+
+  .category-buttons{
+    justify-content:flex-start;
+    overflow-x:auto;
+  }
+
+  .category-buttons button{
+    flex-shrink:0;
+  }
+
+  .movies-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}

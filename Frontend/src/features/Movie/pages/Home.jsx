@@ -4,16 +4,25 @@ import Navbar from "../components/Navbar";
 import { useMovie } from "../hooks/useMovie";
 import { useContext, useEffect } from "react";
 import { MovieContext } from "../movie.context.jsx";
+import { userAuth } from "../../auth/hooks/userAuth";
 
 const Home = () => {
 
-  const { fetchPopularMovies, loading } = useMovie();
+  const { fetchPopularMovies, loading, loadUserFavorites } = useMovie();
+  const { user } = userAuth();
 
   const { popularMovies } = useContext(MovieContext);
 
   useEffect(() => {
     fetchPopularMovies();
   }, []);
+
+  // Load favorites only once when user logs in
+  useEffect(() => {
+    if (user) {
+      loadUserFavorites();
+    }
+  }, [user]);
 
   if (loading) {
     return <h1>Loading...</h1>;

@@ -23,6 +23,7 @@ export const MovieProvider = ({ children }) => {
 
   const [favoriteMovies, setFavoriteMovies] = useState([]);
   const [searchMovies, setSearchMovies] = useState([]);
+  const [addToFavoriteMovie,setAddToFavoriteMovie]= useState([]);
 
   return (
     <MovieContext.Provider
@@ -73,7 +74,10 @@ export const MovieProvider = ({ children }) => {
         setFavoriteMovies,
 
         searchMovies,
-        setSearchMovies
+        setSearchMovies,
+
+        addToFavoriteMovie,
+        setAddToFavoriteMovie
       }}
     >
       {children}

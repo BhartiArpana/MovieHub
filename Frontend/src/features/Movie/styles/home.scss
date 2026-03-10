@@ -1,5 +1,8 @@
 .home{
   width:100%;
+  position:relative;
+  background:var(--bg-color);
+  color:var(--text-color);
 }
 
 /* HERO */
@@ -13,6 +16,7 @@
 
   display:flex;
   align-items:center;
+
 }
 
 .hero-overlay{
@@ -24,12 +28,13 @@
   justify-content:space-between;
 
   padding:3rem 5%;
+
   background:linear-gradient(to right,rgba(0,0,0,.8),rgba(0,0,0,.3));
 }
 
 .hero-content{
   max-width:35rem;
-  color:white;
+  color:var(--text-color);
 }
 
 .featured{
@@ -78,16 +83,21 @@
 
 .movies-section{
   padding:3rem 5%;
+  background:var(--bg-color);
 }
 
 .movies-section h2{
   margin-bottom:2rem;
+  color:var(--text-color);
 }
 
 .movies-grid{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(12rem,1fr));
   gap:1.5rem;
+  background:var(--card-bg);
+  padding:1rem;
+  border-radius:.5rem;
 }
 
 /* MOBILE */
@@ -108,4 +118,4 @@
     width:10rem;
   }
 
-}
+}                      

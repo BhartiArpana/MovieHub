@@ -90,12 +90,37 @@ export const horrorMovie = async () => {
   return response.data;
 };
 
-export const addToFavoriteMovie = async(account_id)=>{
-    const response = await api.post(`/account/${account_id}/favorite`,{
-        account_id
-    })
-    return response.data
-} 
+export const addToFavoriteMovie = async (movieId, movieData) => {
+  const backendApi = axios.create({
+    baseURL: "http://localhost:3000/api",
+    withCredentials: true
+  });
+  const response = await backendApi.post('/users/favorites/add', {
+    movieId,
+    movieData
+  });
+  return response.data;
+};
+
+export const removeFromFavoriteMovie = async (movieId) => {
+  const backendApi = axios.create({
+    baseURL: "http://localhost:3000/api",
+    withCredentials: true
+  });
+  const response = await backendApi.delete('/users/favorites/remove', {
+    data: { movieId }
+  });
+  return response.data;
+};
+
+export const getFavoritesFromBackend = async () => {
+  const backendApi = axios.create({
+    baseURL: "http://localhost:3000/api",
+    withCredentials: true
+  });
+  const response = await backendApi.get('/users/favorites');
+  return response.data;
+};
 
 export const getFevoriteMovie = async (account_id)=>{
     const response = await api.get(`/account/${account_id}/favorite/movies`)
