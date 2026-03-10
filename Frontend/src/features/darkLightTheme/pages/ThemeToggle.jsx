@@ -1,6 +1,12 @@
 import React, { useContext } from "react";
 import { DarkModeContext } from "../DarkModeContext.jsx";
 import '../../shared/button.scss'
+import { MdLightMode } from "react-icons/md";
+
+import { MdDarkMode } from "react-icons/md";
+import './style.scss'
+
+
 
 const ThemeToggle = () => {
   const { darkMode, setDarkMode } = useContext(DarkModeContext);
@@ -8,9 +14,9 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={() => setDarkMode(!darkMode)}
-      className="button"
+      className="themebutton"
     >
-      {darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+      {darkMode ? <MdLightMode  className="icon" /> : <MdDarkMode className="icon" />}
     </button>
   );
 };

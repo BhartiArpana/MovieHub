@@ -3,9 +3,11 @@ import {userLogin,userRegister,getMe} from '../services/useAuth.api'
 import { useContext,useState } from 'react'
 import { useEffect } from 'react'
 
+
 export const userAuth=()=>{
     const context = useContext(UserAuthContext)
     const {loading,setLoading,user,setUser}=context
+    
 
     const handleUserRegister=async(name,email,password)=>{
          setLoading(true)
@@ -29,9 +31,7 @@ export const userAuth=()=>{
         setLoading(false)
     }
 
-    useEffect(()=>{
-        handleGetMe()
-    },[])
+  
 
     return {loading,user,handleUserRegister,handleUserLogin,handleGetMe}
 }

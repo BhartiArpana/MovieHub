@@ -2,7 +2,7 @@ import { Children, createContext, useState } from "react";
 
 export const UserAuthContext = createContext()
 export const UserAuthProvider = ({children})=>{
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
     const [user,setUser]= useState(null)
 
     return(

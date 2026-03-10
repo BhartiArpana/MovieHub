@@ -31,7 +31,11 @@ async function adminRegister(req,res){
     expiresIn:'1d'
    })
 
-   res.cookie('token',token)
+   res.cookie('token',token,{
+     httpOnly: true,
+  secure: false,
+  sameSite: "lax"
+   })
    res.status(201).json({
     message:'User registerd seccessfully!',
     user,
@@ -68,7 +72,11 @@ async function adminLogin(req,res){
         role:user.role
     },process.env.JWT_SECRET)
 
-    res.cookie('token',token)
+    res.cookie('token',token,{
+         httpOnly: true,
+  secure: false,
+  sameSite: "lax"
+    })
     res.status(200).json({
         message:'User loggedIn successfully!',
         user
@@ -104,7 +112,11 @@ async function registerUser(req,res){
     expiresIn:'1d'
    })
 
-   res.cookie('token',token)
+   res.cookie('token',token,{
+     httpOnly: true,
+  secure: false,
+  sameSite: "lax"
+   })
    res.status(201).json({
     message:'User registerd seccessfully!',
     user,
@@ -137,7 +149,11 @@ async function LoginUser(req,res){
         role:user.role
     },process.env.JWT_SECRET)
 
-    res.cookie('token',token)
+    res.cookie('token',token,{
+         httpOnly: true,
+  secure: false,
+  sameSite: "lax"
+    })
     res.status(200).json({
         message:'User loggedIn successfully!',
         user

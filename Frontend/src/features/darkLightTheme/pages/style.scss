@@ -1,0 +1,13 @@
+.themebutton{
+    border-radius: 50%;
+    border: none;
+    padding-block: 0.5rem;
+    padding-inline: 0.7rem;
+    background-color: var(--btn-bg);
+    color: white;
+    cursor: pointer;
+    .icon{
+        width: 1rem;
+        height: 1rem;
+    }
+}

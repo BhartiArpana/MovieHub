@@ -2,7 +2,9 @@ import {createBrowserRouter} from 'react-router-dom'
 import SignUp from './auth/pages/SignUp'
 import Login from './auth/pages/Login'
 import ThemeToggle from './darkLightTheme/pages/ThemeToggle'
-import Protected from './auth/components/Protected'
+import MovieCard from './Movie/components/MovieCard'
+import Navbar from './Movie/components/Navbar'
+import Home from './Movie/pages/Home'
 
 export const router=createBrowserRouter([
     {
@@ -15,7 +17,7 @@ export const router=createBrowserRouter([
     },
     {
         path:'/',
-        element:<Protected><ThemeToggle /></Protected>
+        element:<Home />
     }
-
+// <ThemeToggle />
 ])
