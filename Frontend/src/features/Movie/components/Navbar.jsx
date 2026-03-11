@@ -25,8 +25,8 @@ const Navbar = () => {
       <ul className={`nav-links ${openMenu ? "active" : ""}`}>
         <li><Link to={"/"}>Home</Link></li>
         <li><Link to="/discover">Discover</Link></li>
-        <li>Favorite</li>
-        <li>History</li>
+        <li><Link to="/favorites">Favorite</Link></li>
+        <li><Link to="/history">History</Link></li>
       </ul>
 
       {/* RIGHT SECTION */}

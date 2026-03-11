@@ -6,6 +6,7 @@ import MovieCard from './Movie/components/MovieCard'
 import Navbar from './Movie/components/Navbar'
 import Home from './Movie/pages/Home'
 import Discover from './Movie/pages/Discover'
+import Favorites from './Movie/pages/Favorites'
 
 export const router=createBrowserRouter([
     {
@@ -23,6 +24,10 @@ export const router=createBrowserRouter([
     {
         path:'/',
         element:<Home />
+    },
+    {
+        path:'favorites',
+        element:<Favorites />
     }
 // <ThemeToggle />
 ])

@@ -29,6 +29,7 @@ export const userAuth=()=>{
         const data = await getMe()
         setUser(data.user)
         setLoading(false)
+        return data
     }
 
   
